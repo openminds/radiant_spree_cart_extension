@@ -21,8 +21,8 @@ module SpreeCartTags
     %Q{<span class="login_name"></span>}
   end
   
-  tag "spree_cart:login_or_out" do
-    %Q{<span class="login_or_out"></span>}
+  tag "spree_cart:login_or_out" do |tag|
+    %Q{<span class="login_or_out" data-login="#{tag.attr['login'] || 'Login'}" data-logout="#{tag.attr['logout'] || 'Logout'}"></span>}
   end
   
   tag "spree_cart:cart_content" do

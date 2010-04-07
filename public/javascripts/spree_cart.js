@@ -7,11 +7,13 @@
 			$.getJSON(cart_json_url, function(cart) {
 				$('.cart_content', $this).html(cart.cart_link)
 				
+				var login_logout_field = $('.login_or_out', $this)
+				
 				if (cart.logged_in) {
 					$('.login_name', $this).html('<a href="' + cart.user_profile + '">' + cart.login + '</a>' )
-					$('.login_or_out', $this).html('<a href="' + cart.logout_url + '">Logout</a>')
+					login_logout_field.html('<a href="' + cart.logout_url + '">' + login_logout_field.attr('data-logout') + '</a>')
 				} else {
-					$('.login_or_out', $this).html('<a href="' + cart.login_url + '">Login</a>')
+					login_logout_field.html('<a href="' + cart.login_url + '">' + login_logout_field.attr('data-login') + '</a>')
 				}
 			});
 		})
